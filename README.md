@@ -48,7 +48,7 @@ $message->setFrom($from)
 $mailer = new SmartMailer($smtp);
 
 $mailer->send($message);
-===
+```
 
 You can easily embed any image by using `content id` of the resource. If your
 filename is `sample.png` then to embed just place `cid:sample.png` in contents.

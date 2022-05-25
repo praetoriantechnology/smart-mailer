@@ -2,7 +2,7 @@
     "name": "praetoriantechnology/smart-mailer",
     "description": "Smart mailer based on Symfony Mailer which supports dynamic source mailboxes and easy integration of files within emails",
     "type": "library",
-    "license": "GPL-3",
+    "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4": {
             "Praetorian\\SmartMailer\\": "src/"

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Praetorian\SmartMailer;
 
+use Praetorian\SmartMailer\Exception\InvalidEmailAddressException;
+
 class EmailAddress
 {
     private string $address;

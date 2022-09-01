@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Praetorian\SmartMailer;
 
 use Exception;
+use Praetorian\SmartMailer\Exception\InvalidEmailMessageException;
+use Praetorian\SmartMailer\Exception\SendException;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mime\Address;

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Praetorian\SmartMailer;
 
+use Praetorian\SmartMailer\Exception\InvalidAttachmentException;
+use Praetorian\SmartMailer\Exception\NotUniqueEmbedNameException;
+
 class Message
 {
     protected ?array $to = null;

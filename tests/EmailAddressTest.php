@@ -37,6 +37,15 @@ class EmailAddressTest extends TestCase
         $this->assertEquals($address, (string) $emailAddress);
     }
 
+    public function testLowercaseEmail(): void
+    {
+        $address = 'NamE@domain.com';
+        $emailAddress = new EmailAddress($address);
+
+        $this->assertEquals(mb_strtolower($address), $emailAddress->getAddress());
+        $this->assertNull($emailAddress->getName());
+    }
+
     /**
      * @dataProvider provideInvalidEmailAddresses
      */

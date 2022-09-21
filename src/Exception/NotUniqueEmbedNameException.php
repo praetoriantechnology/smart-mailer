@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Praetorian\SmartMailer;
+namespace Praetorian\SmartMailer\Exception;
 
 class NotUniqueEmbedNameException extends SmartMailerException
 {

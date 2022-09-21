@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Praetorian\SmartMailer;
 
+use Praetorian\SmartMailer\Exception\InvalidEmailAddressException;
+
 class EmailAddress
 {
-    private string $address;
+    protected string $address;
 
     public function __construct(string $address, protected ?string $name = null)
     {
@@ -18,7 +20,7 @@ class EmailAddress
         return $this->getAddress();
     }
 
-    public function setAddress(string $address): self
+    private function setAddress(string $address): self
     {
         if (!filter_var($address, FILTER_VALIDATE_EMAIL)) {
             throw new InvalidEmailAddressException($address);
@@ -37,12 +39,5 @@ class EmailAddress
     public function getName(): ?string
     {
         return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
     }
 }

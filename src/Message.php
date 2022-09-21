@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Praetorian\SmartMailer;
 
+use Praetorian\SmartMailer\Exception\NotUniqueEmbedNameException;
+
 class Message
 {
     protected ?array $to = null;
@@ -172,10 +174,6 @@ class Message
             $this->attachments = [];
         }
 
-        if (!file_exists($attachment->getPath()) || !is_readable($attachment->getPath())) {
-            throw new InvalidAttachmentException($attachment->getPath());
-        }
-
         $this->attachments[] = $attachment;
 
         return $this;
@@ -217,10 +215,6 @@ class Message
     {
         if (!is_array($this->images)) {
             $this->images = [];
-        }
-
-        if (!file_exists($attachment->getPath()) || !is_readable($attachment->getPath())) {
-            throw new InvalidAttachmentException($attachment->getPath());
         }
 
         $name = $this->getImageName($attachment);

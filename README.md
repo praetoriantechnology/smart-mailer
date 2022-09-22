@@ -1,6 +1,9 @@
 Praetorian Technology: Smart Mailer
 ===================================
 
+![Tests status](https://github.com/praetoriantechnology/smart-mailer/workflows/tests/badge.svg)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/praetoriantechnology/smart-mailer?label=latest%20version&sort=semver)
+
 Smart mailer is a simple library which assits sending of emails with use of
 symfony/mailer component. At the moment it requires SMTP connection, but grants
 features like easy embedding of images, easier attachments adding, exceptions
@@ -67,3 +70,11 @@ Roadmap
 1.0: tests, comments
 2.0: other transports than SMTP Servers
 3.0: Pub/Sub queues support
+
+# Contribution
+
+Any pull requests or issues reported are more than welcome.
+
+# License
+
+MIT

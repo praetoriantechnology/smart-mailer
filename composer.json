@@ -23,7 +23,8 @@
         "fix": "./vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --allow-risky=yes",
         "test:unit": "XDEBUG_MODE=coverage ./vendor/phpunit/phpunit/phpunit",
         "test": [
-          "@test:unit"
+            "composer install",
+            "@test:unit"
         ]
     },
     "require-dev": {

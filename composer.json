@@ -16,8 +16,8 @@
     "minimum-stability": "stable",
     "require": {
         "symfony/mailer": "^6.0",
-        "twig/extensions": "^1.5",
-        "symfony/twig-bridge": "^6.0"
+        "symfony/twig-bridge": "^6.0",
+        "twig/extra-bundle": "^3.4"
     },
     "scripts": {
         "fix": "./vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --allow-risky=yes",

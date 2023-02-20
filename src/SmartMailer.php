@@ -100,11 +100,11 @@ class SmartMailer implements SmartMailerInterface
 
         /* @var Attachment */
         foreach ($message->getAttachments() ?? [] as $attachment) {
-            $email->attach($attachment->getPath(), $attachment->getName());
+            $email->attachFromPath($attachment->getPath(), $attachment->getName());
         }
 
         foreach ($message->getImages() ?? [] as $name => $attachment) {
-            $email->embedFromPath($attachment->getPath(), $name, 'image/png');
+            $email->embedFromPath($attachment->getPath(), $name);
         }
 
         try {

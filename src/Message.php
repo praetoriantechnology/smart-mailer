@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Praetorian\SmartMailer;
 
+use Praetorian\SmartMailer\Exception\InvalidImageException;
 use Praetorian\SmartMailer\Exception\NotUniqueEmbedNameException;
+use Symfony\Component\Mime\MimeTypes;
 
 class Message
 {
@@ -213,6 +215,12 @@ class Message
 
     public function addImage(Attachment $attachment)
     {
+        $mimeType = MimeTypes::getDefault()->guessMimeType($attachment->getPath());
+
+        if(!str_starts_with(haystack: $mimeType, needle: 'image/')) {
+            throw new InvalidImageException($attachment->getPath());
+        }
+
         if (!is_array($this->images)) {
             $this->images = [];
         }

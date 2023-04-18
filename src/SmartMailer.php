@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Praetorian\SmartMailer;
 
 use Exception;
+use Praetorian\SmartMailer\Dsn\DsnInterface;
 use Praetorian\SmartMailer\Exception\InvalidEmailMessageException;
 use Praetorian\SmartMailer\Exception\SendException;
 use Symfony\Component\Mailer\Mailer;
@@ -18,19 +19,19 @@ class SmartMailer implements SmartMailerInterface
 {
     protected ?Environment $twig = null;
 
-    public function __construct(protected Smtp $smtp, ?Environment $twig = null)
+    public function __construct(protected DsnInterface $dsn, ?Environment $twig = null)
     {
         $this->twig = $twig ?? $this->createDummyTwig();
     }
 
-    public function getSmtp(): Smtp
+    public function getDsn(): DsnInterface
     {
-        return $this->smtp;
+        return $this->dsn;
     }
 
-    public function setSmtp(Smtp $smtp): self
+    public function setDsn(DsnInterface $dsn): self
     {
-        $this->smtp = $smtp;
+        $this->dsn = $dsn;
 
         return $this;
     }
@@ -56,8 +57,7 @@ class SmartMailer implements SmartMailerInterface
     {
         $this->validate($message);
 
-        $smtp = $this->getSmtp();
-        $dsn = sprintf('smtp://%s:%s@%s:%s', $smtp->getUsername(), $smtp->getPassword(), $smtp->getHost(), $smtp->getPort());
+        $dsn = (string) $this->getDsn();
         $transport = Transport::fromDsn($dsn);
         $mailer = new Mailer($transport);
 

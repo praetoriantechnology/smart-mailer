@@ -19,7 +19,8 @@
         "symfony/mailer": "^6.0",
         "symfony/mime": "^6.0",
         "symfony/twig-bridge": "^6.0",
-        "twig/extra-bundle": "^3.4"
+        "twig/extra-bundle": "^3.4",
+        "twig/twig": "^3"
     },
     "scripts": {
         "fix": "./vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --allow-risky=yes",

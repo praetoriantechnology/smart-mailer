@@ -1,7 +1,7 @@
 FROM php:8.2-cli
 VOLUME [ "/var/www/html"]
 WORKDIR "/var/www/html"
-
+RUN apt-get update && apt-get install -y zip git unzip
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 RUN echo 'xdebug.mode=develop,debug,coverage' >> /usr/local/etc/php/php.ini

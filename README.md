@@ -77,4 +77,4 @@ Any pull requests or issues reported are more than welcome.
 
 # License
 
-MIT
+GPL 3+

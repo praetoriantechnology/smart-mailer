@@ -90,6 +90,7 @@ class Smtp implements DsnInterface
 
     public function __toString(): string
     {
-        return sprintf('smtp://%s:%s@%s:%s', $this->getUsername(), $this->getPassword(), $this->getHost(), $this->getPort());
+        //TODO solve why we cannot verify peer on dev
+        return sprintf('smtp://%s:%s@%s:%s?verify_peer=0', $this->getUsername(), $this->getPassword(), $this->getHost(), $this->getPort());
     }
 }
